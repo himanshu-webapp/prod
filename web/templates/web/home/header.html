@@ -1,0 +1,82 @@
+{% load static %}{% load crispy_forms_tags %}
+<style>
+</style>
+<section class="container-fluid cardo">
+    <div class="wrapper container pt-2 pb-2">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="container-fluid pt-3 pb-3">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex align-items-center" style="min-height:350px">
+                                <div class="container">
+                                    <h2 class="">STRUCTURAL REPAIRING, RETROFITTING, TESTING? WE CAN HELP.</h2>
+                                    <p class="lead">
+                                        With the engineers from the reputed institution of the country, we provide the best service to the customers.
+                                    </p>
+                                    <a href="#Scope"><button class="btn bg-rd-dark text-white pt-2 pb-2 pr-3 pl-3 rounded-0">Learn More</button></a>
+                                    <a href="#Domainexpertise"> <button class="btn btn-secondary pt-2 pb-2 pr-3 pl-3 rounded-0">Expertise</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex align-items-center" style="min-height:350px">
+                                <div class="container">
+                                    <h2>WE DO ENGINEERING</h2>
+                                    <p class="lead">Get the full report of your building's health. We allow you to evaluate your building for <b>free</b>. Grab the opportunity.</p>
+                                    <button class="btn bg-rd-dark text-white pt-2 pb-2 pr-3 pl-3 rounded-0">Evaluate Now</button>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <a style="margin-left:-60px" class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span  class="text-dark" aria-hidden="true">❮</span>
+                        <span class="sr-only text-info">Previous</span>
+                      </a>
+                      <a style="margin-right:-60px" class="carousel-control-next " href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span  class="text-dark" aria-hidden="true">❯</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                    <div class="certification row wrapper container mt-2 pl-3">
+                        <div class="col-9 ">
+						    <p class="text-justify">Quality & Compliance before everything. Support & Integrity before everything.</p>
+						</div>
+                        <div class="col-3">
+							<img style="width:70px;height:70px" src="{% static 'web/assets/icons/iso.jpg' %}" class="certificates">
+						</div>
+					</div>
+                </div>
+            </div>
+            <div id="Headerform" class="col-12 col-lg-6">
+                <div class="container border col-md-10 shadow form-div text-center text-lg-left mt-3 mb-3" id="header-form-div">
+                    <div class="container pt-5 pb-5 pl-md-5 pr-md-5">
+                        <h1 class="text-rd-dark">GET IN TOUCH WITH THE EXPERTS</h1>
+                        <p class="lead">Ask any queries you have.</p>
+                        <div class="">
+                            {% if messages %}
+                            {% for msg in messages %}
+                            <div class="alert alert-{% if msg.tags == 'error' %}danger{% else %}{{ msg.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                              {{ msg.message }}
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <div class="d-flex d-lg-block justify-content-center">
+                                <form method="post" action="{% url 'web:Contact' %}" class="text-left">
+                                    {% csrf_token %}
+                                    {{ form }}
+                                    <button class="btn bg-rd-dark text-white container-fluid">Get A Quote</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

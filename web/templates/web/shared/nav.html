@@ -1,0 +1,180 @@
+{% load static %}
+<!--Page Css-->
+<style>
+.dropdown {
+    position: static !important;
+}
+
+.dropdown-menu {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+    margin-top: 0px !important;
+    width: 100% !important;
+}
+</style>
+
+  <!--Top bar-->
+  <nav class="navbar navbar-expand-md  shadow bg-toggle cardo" id="top-bar">
+    <div class="container-fluid justify-items-between wrapper">
+      <a href="{% url 'web:Home' %}"><img src="{% static 'web/assets/images/logo/mob-logo.png' %}" class="icon"></a>
+      <div class="row  d-none d-md-flex align-items-center text-white ml-auto">
+        <div class="col-auto text-right">
+          Evaluate Your Building
+        </div>
+        <div class="col-auto d-flex justify-content-end">
+          <button class="btn btn-primary bg-rd-dark ml-auto  align-self-center">Evaluate Now</button>
+        </div>
+      </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggle" aria-controls="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+    </div>
+  </nav>
+
+  <!--Nav Toggle-->
+  <nav class="container-fluid collapse navbar-collapse cardo shadow-sm" id="nav-toggle">
+        <div class="wrapper container pt-5 pb-5">
+            <div class="container-fluid">
+                <h3 class="text-center">WELCOME TO CR-INDIA</h3>
+                <ul class="list-unstyled text-center">
+                    <li><a class="text-dark" href="{% url 'web:Home' %}">HOME</a></li>
+                    <li><a class="text-dark" href="{% url 'web:Services Home' %}">SERVICES</a></li>
+                    <li><a class="text-dark" href="{% url 'web:Job Application' %}">CAREER</a></li>
+                    <li><a class="text-dark" href="{% url 'web:Blog' %}">BLOG</a></li>
+                    <li><a class="text-dark" href="{% url 'web:Contact' %}">CONTACT</a></li>
+                </ul>
+                <ul class="list-inline justify-content-center justify-content-lg-start d-flex">
+                    <li class="social-media-icons border icon-div list-inline-item mr-0">
+                      <a href="" class="text-dark"><i class="fa fa-twitter flex-center" id="social-media-icon-div-twitter-icon" aria-hidden="true"></i></a></li>
+                    <li class="social-media-icons border icon-div list-inline-item mr-0">
+                      <a href="" class="text-dark"><i class="fa fa-github" id="social-media-icon-div-github-icon"aria-hidden="true"></i></a></li>
+                    <li class="social-media-icons border icon-div  list-inline-item mr-0">
+                      <a href="" class="text-dark"><i class="fa fa-google-plus" id="social-media-icon-div-google-plus-icon"aria-hidden="true"></i></a></li>
+                    <li class="social-media-icons icon-div border list-inline-item mr-0">
+                      <a href="" class="text-dark"><i class="fa fa-dribbble" id="social-media-icon-div-dribble-icon" aria-hidden="true"></i></a></li>
+                    <li class="social-media-icons icon-div  border list-inline-item mr-0">
+                      <a href="" class="text-dark"><i class="fa fa-instagram" id="social-media-icon-div-instagram-icon" aria-hidden="true"></i></a></li>
+                    <li class="social-media-icons border icon-div list-inline-item mr-0">
+                      <a href="" class="text-dark"><i class="fa fa-xing flex-center" id="social-media-icon-div-xing-icon" aria-hidden="true"></i></a></li>
+                  </ul>
+            </div>
+        </div>
+    </nav>
+  <!--Nav-->
+  <nav class="navbar navbar-expand-md d-none collapse navbar-collapse navbar-dark bg-rd-dark cardo d-md-flex" id="primary-nav">
+      <div class="container-fluid pd-0 wrapper ">
+          <ul class="list-inline mr-0 mb-0 pd-0 row-no-gutters row justify-content-start" id="primary-nav-list">
+              <!-- Home -->
+              <li class="nav-menu list-inline-item dropdown bg-rd-gradient mr-0 pd-lr2 pd-tb1 br-bw-hv">
+                <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown">Home<small class="d-none d-lg-inline"><br>You start here.</small></a>
+                  <ul class="dropdown-menu list-inline bg-rd-dark rounded-0 align-items-start disc row-no-gutters row secondary-nav-list" id="secondary-nav-list-home">
+                      <div class="container-fluid wrapper pd-b2">
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% if home %}#Headerform{% else %}{% url 'web:Home' %}{% endif %}">Enquire
+                      <ul class="list-unstyled">
+                          <li><small class="font-italic">Whatever your doubts, you can enquire it here.</small></li>
+                      </ul></a>
+                          </li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% if home %}#Scope{% else %}{% url 'web:Home' %}{% endif %}">Scope
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">View the scope of our industry. What we offer.</small></li>
+                          </ul>
+                          </a></li>
+                          <li class="list-inline-item  pd-t2 col-md-3  mr-0 pd-0 width-4"><a class="text-white" href="{% if home %}#Domainexpertise{% else %}{% url 'web:Home' %}{% endif %}">Domain Expertise
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Know our domain. What are we expert in.</small></li>
+                          </ul>
+                          </a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% if home %}#Whyus{% else %}{% url 'web:Home' %}{% endif %}">Why Us?
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">The features of the industry that piques your interest.</small></li>
+                          </ul>
+                          </a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% if home %}#Contact{% else %}{% url 'web:Home' %}{% endif %}">Contact
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Ask all your queries here.</small></li>
+                          </ul>
+                          </a></li>
+                      </div>
+                  </ul>
+              </li>
+              <!-- Services -->
+              <li class="nav-menu list-inline-item dropdown bg-rd-gradient mr-0 pd-lr2 pd-tb1 br-bw-hv">
+                <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown">Services<small class="d-none d-lg-inline"><br>Services we offer.</small></a>
+                  <ul class="dropdown-menu list-inline bg-rd-dark rounded-0 align-items-start disc row-no-gutters row secondary-nav-list" id="secondary-nav-list-services">
+                      <div class="container-fluid wrapper justify-content-start pd-b2">
+                          {% if category_list %}
+                            {% for category in category_list %}
+                               <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Services Home' %}">{{ category.name }}</a>
+                               <ul class="list-unstyled">
+                                   {% for service in category.services %}
+                                        <li><a href="{% url 'web:Service' service.slug %}" class="text-white"><small class="font-italic">{{ service.name }}</small></a></li>
+                                   {% endfor %}
+                               </ul>
+                            {% endfor %}
+                          {% endif %}
+                      </div>
+                  </ul>
+              </li>
+              <!-- Career -->
+              <li class="nav-menu list-inline-item dropdown bg-rd-gradient mr-0 pd-lr2 pd-tb1 br-bw-hv">
+                <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown">Career<small class="d-none d-lg-inline"><br>Career opportunities.</small></a>
+                  <ul class="dropdown-menu list-inline bg-rd-dark rounded-0 align-items-start disc row-no-gutters row secondary-nav-list" id="secondary-nav-list-career">
+                      <div class="container-fluid wrapper justify-content-start pd-b2">
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Job Application' %}">Job Application
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Submit your job application with us.</small></li>
+                          </ul></a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Internship Application' %}">Internship Application
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Become an intern at the industry.</small></li>
+                          </ul>
+                          </a></li>
+                          <li class="list-inline-item  pd-t2 col-md-3  mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:CVF' %}">Certificate Verification
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Verify if your certificate is valid.</small></li>
+                          </ul>
+                          </a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:About' %}">About
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Know all there is to know about us.</small></li>
+                          </ul></a></li>
+                      </div>
+                  </ul>
+              </li>
+              <!-- Blog -->
+              <li class="nav-menu list-inline-item dropdown bg-rd-gradient mr-0 pd-lr2 pd-tb1 br-bw-hv">
+                <a href="{% url 'web:Blog' %}" class="dropdown-toggle text-white" data-toggle="dropdown">Blog<small class="d-none d-lg-inline"><br>All about us.</small></a>
+                   <ul class="dropdown-menu list-inline bg-rd-dark rounded-0 align-items-start disc row-no-gutters row secondary-nav-list" id="secondary-nav-list-blog">
+                      <div class="container-fluid wrapper justify-content-start pd-b2">
+                          <li class="list-inline-item  pd-t2 col-md-3  mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Blog Category' 'Articles' %}">Articles
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Get updated to our latest posts.</small></li>
+                          </ul>
+                          </a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Blog Category' 'Educate' %}">Educate
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Our posts related to education.</small></li>
+                          </ul></a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Blog Category' 'Case Studies' %}">Case Studies
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">Challenges we face.</small></li>
+                          </ul>
+                          </a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Blog Category' 'Seminars' %}">Seminars
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">View all the seminars we organised.</small></li>
+                          </ul></a></li>
+                          <li class="list-inline-item pd-t2 col-md-3 mr-0 pd-0 width-4"><a class="text-white" href="{% url 'web:Blog Category' 'News & Media' %}">News & Media
+                          <ul class="list-unstyled">
+                              <li><small class="font-italic">News about the industry.</small></li>
+                          </ul></a></li>
+                      </div>
+                  </ul>
+              </li>
+              <!-- Contact -->
+              <li class="nav-menu list-inline-item bg-rd-gradient mr-0 pd-lr2 pd-tb1 br-bw-hv">
+                <a href="{% url 'web:Contact' %}" class="text-white">Contact<small class="d-none d-lg-inline"><br>You reach us here.</small></a>
+              </li>
+          </ul>
+      </div>
+ </nav>
+

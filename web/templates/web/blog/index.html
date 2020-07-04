@@ -1,0 +1,73 @@
+{% extends "./base.html" %}
+{% load static %}{% block page_title %}Blog{% endblock page_title %}
+{% block page_body %}
+
+<div class="container-fluid cardo pt-5 pb-5 mb-2">
+    <nav aria-label="breadcrumb" class="pb-0 pt-0">
+      <ol class="breadcrumb bg-green text-white pb-1 pt-1 rounded-0">
+        <li class="breadcrumb-item"><a href="#" class="text-rd-dark">Home</a></li>
+          <li class="breadcrumb-item text-gray active" aria-current="page">{% if searched_by %}<a href="{% url 'web:Blog' %}" class="text-rd-dark">Blog</a>{% else %}Blog{% endif %}</li>
+        {% if searched_by %}<li class="breadcrumb-item text-gray active" aria-current="page">{{ searched_by }}</li>{% endif %}
+      </ol>
+    </nav>
+    <div class="mb-2">
+        <h1 class="">{% if searched_by %}{{ searched_by }}{% else %}All Posts{% endif %}</h1>
+        <div class="row">
+            <div class=" col-md-6">
+                <div class="mt-1">
+                {% if common_tags %}
+                <span>Common Tags:</span>
+                <ul class="list-unstyled mb-0 mt-1 d-flex flex-wrap">
+                  {% for tag in common_tags %}
+                  <li class="mr-1 mb-2 badge badge-success">
+                    <a class="text-white" href="{% url 'web:Blog Tagged' tag.slug %}">{{ tag }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'web:Blog-Tag-Search' %}">
+                  <input class="form-control mr-sm-2" name="tag" type="search" placeholder="Search Tags ..." aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid p-0">
+            {% if posts %}
+            {% for post in posts %}
+            <div class="container-fluid p-3 mb-2 border-bottom" style="background-color:#f4f4f4">
+                <div class="row">
+                {% if post.header_image %}
+                <div class="col-md-3 col">
+                    <img style="" src="{{ post.header_image.url }}">
+                </div>
+                {% endif %}
+                <div class="col-md-9">
+                    <h4 class="uppercase">{{ post.title }}</h4>
+                    <p style="font-size:0.9rem" class="mb-1"><strong>Author:</strong> {{ post.author }}<br>{{ post.createdon }}</p>
+                    <p>{{ post.overview|safe|slice:":100" }} ...</p>
+
+                    <a class="text-rd-dark" href="{% url 'web:Blog Post' post.id %}">Read More</a>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}<h1 class="display-4 m-5 p-5 text-center">No Posts Yet!</h1>{% endif %}
+        </div>
+    </div>
+    <div class="related pt-3 pl-3 pr-3 pb-3">
+        <h3>Related Pages:</h3>
+        <ul>
+            <li><a href="{% url 'web:Services Home' %}" class="text-dark">Specialty Services</a></li>
+            <li><a href="{% url 'web:About' %}" class="text-dark">About Us</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock page_body %}

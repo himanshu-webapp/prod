@@ -1,0 +1,29 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block page_body %}
+<div class="container-fluid cardo pt-5 pb-5 mb-2">
+    <nav aria-label="breadcrumb" class="pb-0 pt-0">
+      <ol class="breadcrumb bg-green text-white pb-1 pt-1 rounded-0">
+        <li class="breadcrumb-item"><a href="{% url 'web:Home' %}" class="text-rd-dark">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'web:CVF' %}" class="text-rd-dark">Career</a></li>
+        <li class="breadcrumb-item text-gray active" aria-current="page">Certificate Verification</li>
+      </ol>
+    </nav>
+    <h1 class="mb-0 ">Certificate Verification</h1>
+    <p class="lead mb-2">Verify your certificate here</p>
+    <div class="container-fluid mt-3">
+        {% if details %}
+            <ul class="list-unstyled">
+                {% for key,val in details.items %}
+                    <li class="row">
+                        <div class="col-sm-4 "><strong>{{ key }}</strong></div>
+                        <div class="col-sm-auto"><strong>:</strong>  </div>
+                        <div class="col-sm-auto">{{ val }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+<!--        <button class="btn btn-primary bg-rd-dark mt-3 rounded-0"><a class="text-white" href="{{ file }}" download>Download Certificate</a></button>-->
+    </div>
+</div>
+{% endblock page_body %}

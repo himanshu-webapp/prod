@@ -1,0 +1,28 @@
+<style>
+    .border-lg-side {
+        border-top : 1px dotted gray;
+        border-right:none;
+    }
+    @media (min-width:992px) {
+        .border-lg-side {
+            border-right : 1px dotted gray;
+            border-top : none;
+        }
+    }
+</style>
+<div class="container-fluid cardo  pt-5 pb-5 border-lg-side" style="height:100%">
+    <div class="wrapper">
+        <div class="d-lg-flex justify-content-center"><div class="mb-3" style="width:100px;height:100px;border-radius:50%;border:1px solid gray"></div></div>
+        <h3 class="text-lg-center text-left">BLOG</h3><hr>
+
+        <ul class="list-unstyled">
+            {% if categories %}
+                <ul class="list-unstyled">
+                    {% for category in categories %}
+                    <li><a class="{% if searched_by == category %}text-rd-dark{% else %}text-dark{% endif %}" href="{% url 'web:Blog Category' category %}">{{ category }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+{% extends "./base.html" %}{% load crispy_forms_tags %}
+{% load static %}{% block page_title %}{{ post.title }}{% endblock page_title %}
+{% block page_body %}
+
+<div class="cardo container-fluid wrapper pt-5 pb-5">
+    <nav aria-label="breadcrumb" class="pb-0 pt-0">
+      <ol class="breadcrumb bg-green text-white pb-1 pt-1 rounded-0">
+        <li class="breadcrumb-item"><a href="{% url 'web:Home' %}" class="text-rd-dark">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'web:Blog' %}" class="text-rd-dark">Blog</a></li>
+        <li class="breadcrumb-item text-gray active" aria-current="page">{{ post.title }}</li>
+      </ol>
+    </nav>
+
+    <h2 class="uppercase">{{ post.title }}</h2>
+    <p style="font-size:0.9rem" class="mb-1"><strong>Author:</strong> {{ post.author }}<br>{{ post.createdon }}</p>
+
+    <hr>
+    <div class="row">
+        <div class="col-8">
+              <p class="text-justify">{{ post.overview|safe }}</p>
+        </div>
+        {% if post.header_image %}
+        <div class="col-4 d-lg-flex justify-content-center">
+            <img style="" src="{{ post.header_image.url }}" style="width:80%">
+        </div>
+        {% endif %}
+    </div>
+    <hr>
+    <div class="body cardo">
+        {{ post.body }}
+    </div><hr>
+    <div class="mb-5">
+        <!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body">
+            <form method="post" action="{% url 'web:Blog Comment' post.id %}">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <button type="submit" class="btn btn-primary bg-rd-dark">Submit</button>
+            </form>
+          </div>
+        </div>
+        <hr>
+        {% if comments %}
+        <!-- Single Comment -->
+        {% for comment in comments %}
+        <div class="media mb-4 bg-light p-3">
+          <div class="media-body">
+              <h5 class="mt-0 mb-0">{{ comment.name }}<br><small><strong>email: </strong>{{ comment.email }} <br><strong>on: </strong> {{ comment.createdon }}</small></h5>
+              <p class="">{{ comment.content }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}<h3 class="text-center pd-tb2">NO COMMENTS TO SHOW</h3>{% endif %}
+    </div>
+        <div class="related pt-3 pl-3 pr-3 pb-3">
+        <h3>Related Pages:</h3>
+        <ul>
+            <li><a href="{% url 'web:Services Home' %}" class="text-dark">Recent Articles</a></li>
+            <li><a href="{% url 'web:About' %}" class="text-dark">About Us</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    var elements = document.getElementsByClassName("img-thumbnail");
+
+
+var myFunction = function() {
+   var modal = document.querySelector(".modal-body img")
+   modal.src = this.src
+};
+Array.from(elements).forEach(function(element) {
+      element.addEventListener('click', myFunction);
+    });
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img style="width:100%;height:auto">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock page_body %}

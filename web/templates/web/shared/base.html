@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>{% block page_title %}{% endblock page_title %} - CRIndia</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'web/assets/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'web/css/custom.css' %}" rel="stylesheet">
+  <script src="https://use.fontawesome.com/c92bf955bb.js"></script>
+  {% block headcss %}{% endblock headcss %}
+  {% block headscripts %}{% endblock headscripts %}
+
+</head>
+<body>
+    <div id="mobile-indicator" class="d-lg-none"></div>
+    {% include './nav.html' %}
+    {% block content %}{% endblock content %}
+    {% include './footer.html' %}
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img style="width:100%;height:auto">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+        var elements = document.getElementsByClassName("img-thumbnail");
+        var myFunction = function() {
+           var modal = document.querySelector(".modal-body img")
+           modal.src = this.src
+        };
+        Array.from(elements).forEach(function(element) {
+              element.addEventListener('click', myFunction);
+            });
+    </script>
+
+
+  <!-- Bootstrap core JavaScript -->
+
+<script src="{% static 'web/assets/lib/jquery.min.js' %}"></script>
+<script src="{% static 'web/assets/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+  {% block scripts %}{% endblock scripts %}
+
+
+</body>
+</html>

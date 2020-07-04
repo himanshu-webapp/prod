@@ -1,0 +1,78 @@
+{% load static %}
+
+<footer class="container-fluid bg-green cardo pt-5 pb-3">
+  <section class="footer-section" id="footer-top">
+    <div class="container-fluid wrapper text-white text-center text-md-left">
+          <div class="logo-div d-flex justify-content-center justify-content-md-start">
+            <img src="{% static 'web/assets/images/logo/mob-logo.png' %}" class="logo icon">
+          </div>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 pt-4">
+          <div class="info">
+            <p class="lead mb-0">About</p>
+            <a class="text-white font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+          </div><br>
+          <div class="info">
+            <p class="lead mb-0">Contact</p>
+            <a class="text-white font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3  pt-4">
+          <ul class="list-unstyled">
+          <p class="lead">Information</p>
+            <li class="font-italic"><a href="#" class="text-white">About Us</a></li>
+            <li class="font-italic"><a href="#" class="text-white">Testimonials</a></li>
+            <li class="font-italic"><a href="#" class="text-white">Events</a></li>
+            <li class="font-italic"><a href="#" class="text-white">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pt-4">
+          <ul class="list-unstyled">
+          <p class="lead">Helpful Links</p>
+            <li class="font-italic"><a href="#" class="text-white">Services</a></li>
+            <li class="font-italic"><a href="#" class="text-white">Support</a></li>
+            <li class="font-italic"><a href="#" class="text-white">Privacy Policies</a></li>
+            <li class="font-italic"><a href="#" class="text-white">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 pt-4">
+          <div >
+            <a class="d-lg-flex justify-content-center justify-content-lg-end mr-2 mb-2" href="{% if home %}#Contact{% else %}{% url 'web:Contact' %}{% endif %}"><button class="btn bg-rd-gradient text-white pt-2 pb-2 pl-3 pr-3">GET A QUOTE</button></a><br>
+
+              <div class="d-lg-flex justify-content-center justify-content-lg-end mt-2 mb-2">
+              <a class="mr-2 mb-2" href="{% url 'web:Feed' %}"><button style="background-color:coral" class="btn  text-white"><i class="fa fa-rss" aria-hidden="true"></i></button></a><a class="mr-2 mb-2" href="#top-bar"><button class="btn bg-rd-gradient text-white">^</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="footer-section container-fluid text-center" id="footer-bottom">
+    <div class="container-fluid wrapper text-white justify-content-start">
+      <hr class="" style="border-bottom:1px solid #fff">
+      <p>We give our Clients- <span class="font-italic">the customer experience that e-commerce industry serves to its customers.</span> <br>Come experience excellence with the best engineers.</p>
+      <br>
+      <div class="row">
+        <div class="col-12 col-lg-6 social-media justify-content-center">
+          <ul class="list-inline justify-content-center justify-content-lg-start d-flex">
+            <li class="social-media-icons icon-div list-inline-item mr-0">
+              <a href="" class="text-white"><i class="fa fa-twitter flex-center" id="social-media-icon-div-twitter-icon" aria-hidden="true"></i></a></li>
+            <li class="social-media-icons icon-div list-inline-item mr-0">
+              <a href="" class="text-white"><i class="fa fa-github" id="social-media-icon-div-github-icon"aria-hidden="true"></i></a></li>
+            <li class="social-media-icons icon-div list-inline-item mr-0">
+              <a href="" class="text-white"><i class="fa fa-google-plus" id="social-media-icon-div-google-plus-icon"aria-hidden="true"></i></a></li>
+            <li class="social-media-icons icon-div list-inline-item mr-0">
+              <a href="" class="text-white"><i class="fa fa-dribbble" id="social-media-icon-div-dribble-icon" aria-hidden="true"></i></a></li>
+            <li class="social-media-icons icon-div list-inline-item mr-0">
+              <a href="" class="text-white"><i class="fa fa-instagram" id="social-media-icon-div-instagram-icon" aria-hidden="true"></i></a></li>
+            <li class="social-media-icons icon-div list-inline-item mr-0">
+              <a href="" class="text-white"><i class="fa fa-xing flex-center" id="social-media-icon-div-xing-icon" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6 copyright text-lg-right ml-auto">
+          Concrete Renovations India 2020 • ALL RIGHTS RESERVED.
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>

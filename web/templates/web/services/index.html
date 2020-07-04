@@ -1,0 +1,57 @@
+{% extends "./base.html" %}
+{% load static %}{% block page_title %}Services{% endblock page_title %}
+{% block page_body %}
+
+<div class="container-fluid cardo pt-5 pb-5 mb-2">
+    <nav aria-label="breadcrumb" class="pb-0 pt-0">
+      <ol class="breadcrumb bg-green text-white pb-1 pt-1 rounded-0">
+        <li class="breadcrumb-item"><a href="{% url 'web:Home' %}" class="text-rd-dark">Home</a></li>
+        <li class="breadcrumb-item text-gray active" aria-current="page">Services</li>
+      </ol>
+    </nav>
+    <div class="mb-2">
+        <h1 class="">SERVICES</h1>
+        <p>We Perform Structural Integrity Audits for RCC Structures, both Industrial and Commercial, through NonDestructive Testing: Rebound Hammer, Ultrasonic Pulse Velocity Detection and other methodologies: chemical analysis, core cutting, carbonation test, etc for concrete diagnostics.We Prepare Structures for Future by enhancing structural components through supplemental steel systems, section enlargement, etc and enhancing support systems through protective coatings- waterproofing and fireproofing, expansion joints treatment and others.</p>
+        <hr>
+        <div class="mb-3">
+            <h3>Scope</h3>
+            <p>We Prepare Structures for Future by enhancing structural components through supplemental steel systems, section enlargement, etc and enhancing support systems through protective coatings- waterproofing and fireproofing, expansion joints treatment and others.</p>
+            <ul>
+                <li><a href="{% url 'web:Service' 'testing' %}" class="text-dark">Testing</a></li>
+                <li><a href="{% url 'web:Service' 'repairing' %}" class="text-dark">Repairing</a></li>
+                <li><a href="{% url 'web:Service' 'retrofitting' %}" class="text-dark">Retrofitting</a></li>
+            </ul>
+        </div>
+        <div class="mb-3">
+            <h3>Domain Expertise</h3>
+            <p>We Prepare Structures for Future by enhancing structural components through supplemental steel systems, section enlargement, etc and enhancing support systems through protective coatings- waterproofing and fireproofing, expansion joints treatment and others.</p>
+            <ul class="">
+                <li><a href="{% url 'web:Service' 'concreterepairandrehabilitation' %}" class="text-dark">Concrete Repair & Rehabilitation</a></li>
+                <li><a href="{% url 'web:Service' 'structuralhealthmonitoring' %}" class="text-dark">Structural Health Monitoring</a></li>
+                <li><a href="{% url 'web:Service' 'structuralstrengthening' %}" class="text-dark">Structural Strengthening</a></li>
+                <li><a href="{% url 'web:Service' 'groutingandinjection' %}" class="text-dark">Grouting & Injection</a></li>
+                <li><a href="{% url 'web:Service' 'concretemitigation' %}" class="text-dark">Concrete Mitigation</a></li>
+            </ul>
+        </div>
+        <div class="mb-3">
+            <h3>Specialty Services</h3>
+            <p>We Prepare Structures for Future by enhancing structural components through supplemental steel systems, section enlargement, etc and enhancing support systems through protective coatings- waterproofing and fireproofing, expansion joints treatment and others.</p>
+            <ul>
+                <li><a href="{% url 'web:Service' 'expansionjoint' %}" class="text-dark">Expansion Joint & Treatment</a></li>
+                <li><a href="{% url 'web:Service' 'protectivecoating' %}" class="text-dark">Protective Coating</a></li>
+                <li><a href="{% url 'web:Service' 'waterproofing' %}" class="text-dark">Waterproofing</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="related pt-3 pl-3 pr-3 pb-3">
+        <h3>Related Pages:</h3>
+        <ul>
+            <li><a href="" class="text-dark">Recent Articles</a></li>
+            <li><a href="" class="text-dark">About Us</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock page_body %}

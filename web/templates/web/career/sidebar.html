@@ -1,0 +1,25 @@
+<style>
+    .border-lg-side {
+        border-top : 1px dotted gray;
+        border-right:none;
+    }
+    @media (min-width:992px) {
+        .border-lg-side {
+            border-right : 1px dotted gray;
+            border-top : none;
+        }
+    }
+</style>
+<div class="container-fluid cardo  pt-5 pb-5 border-lg-side" style="height:100%">
+    <div class="wrapper">
+        <div class="d-lg-flex justify-content-center"><div class="mb-3" style="width:100px;height:100px;border-radius:50%;border:1px solid gray"></div></div>
+        <h3 class="text-lg-center text-left">Career</h3><hr>
+
+        <ul class="list-unstyled">
+                <a class="text-dark" href="{% url 'web:Job Application' %}"><li class="mb-1">Job Application</li></a>
+                <a class="text-dark" href="{% url 'web:Internship Application' %}"><li class="mb-1">Internship Application</li></a>
+                <a class="text-dark" href="{% url 'web:CVF' %}"><li class="mb-1">Certificate Verification</li></a>
+                <a class="text-dark" href="{% url 'web:About' %}"><li class="mb-1">About</li></a>
+        </ul>
+    </div>
+</div>

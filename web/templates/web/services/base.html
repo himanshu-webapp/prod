@@ -1,0 +1,27 @@
+{% extends "web/shared/base.html" %}
+{% load static %}{% block page_title %}Services - Home{% endblock page_title %}
+{% block content%}
+<style>
+    @media (max-width:992px) {
+        .updown {display : grid;grid-template-columns:1fr;grid-template-rows:1fr 1fr;grid-template-areas:"up down"}
+        .updown .up {grid-area:up}
+        .updown .down {grid-area:down}
+    }
+</style>
+<style>
+    .breadcrumb,.related {
+        background-color : #2C2D2832
+    }
+</style>
+<div class="container-fluid wrapper">
+    <div class="row d-lg-flex flex-row-reverse">
+        <div class="col-lg-9 col-12">
+            {% block page_body %}{% endblock page_body %}
+        </div>
+        <div class="col-lg-3 col-12 ">
+            {% include "./sidebar.html" %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

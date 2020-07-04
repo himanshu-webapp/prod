@@ -1,0 +1,81 @@
+{% extends './base.html' %}
+{% load static %}
+{% block page_body %}
+<div class="container-fluid cardo pt-5 pb-5">
+<nav aria-label="breadcrumb" class="pb-0 pt-0">
+  <ol class="breadcrumb bg-green text-white pb-1 pt-1 rounded-0">
+    <li class="breadcrumb-item"><a href="{% url 'web:Home' %}" class="text-rd-dark">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'web:Job Application' %}" class="text-rd-dark">Career</a></li>
+    <li class="breadcrumb-item text-gray active" aria-current="page">About</li>
+  </ol>
+</nav>
+
+    <!-- Intro Content -->
+    <div class="row">
+      <div class="col-xl-6 d-none d-xl-flex">
+        <img class="img-fluid rounded mb-4" src="{% static 'web/assets/images/home/group.jpg' %}" alt="">
+      </div>
+      <div class="col-xl-6">
+        <h2>About CR INDIA</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Team Members -->
+    <h2>Our Team</h2>
+
+    <div class="row">
+      <div class="col-xl-4 col-9 mb-4">
+        <div class="card h-100 text-center">
+          <div class="d-flex justify-content-center">
+            <img style="width:50%" class="card-img-top" src="{% static 'web/assets/images/home/people/1.jpg' %}" alt="">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">VISHAL BUDHWAR</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Operations Head</h6>
+            <p class="card-text">A Young Professional with 7 years of experience in Repair, Rehabilitation and Construction Industry. Vishal is responsible for client deliverable, On-site Operations Optimization and Quality Assurance   </p>
+          </div>
+<!--          <div class="card-footer">-->
+<!--            <a href="#">name@example.com</a>-->
+<!--          </div>-->
+        </div>
+      </div>
+      <div class="col-xl-4 col-9  mb-4">
+        <div class="card h-100 text-center">
+          <div class="d-flex justify-content-center">
+            <img style="width:50%" class="card-img-top" src="{% static 'web/assets/images/home/people/2.jpg' %}" alt="">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">AMMAR ILYAS</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Technical Head</h6>
+            <p class="card-text">Ammar deals in serviceability requirements and cost optimization. He previously led teams for projects in repair and retrofitting of Infrastructural, Commercial and Industrial Structures.</p>
+          </div>
+<!--          <div class="card-footer">-->
+<!--            <a href="#">name@example.com</a>-->
+<!--          </div>-->
+        </div>
+      </div>
+      <div class="col-xl-4 col-9  mb-4">
+        <div class="card h-100 text-center">
+          <div class="d-flex justify-content-center">
+            <img style="width:50%" class="card-img-top" src="{% static 'web/assets/images/home/people/3.jpg' %}" alt="">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Saurabh, IIT BHU</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Relations Head</h6>
+            <p class="card-text">Saurabh works in lead role in clients relations management and handles contracts, client requirements, and grievence readdressal. He is IIT (BHU) Varanasi graduate from the 'batch of 2015'</p>
+          </div>
+<!--          <div class="card-footer">-->
+<!--            <a href="#">name@example.com</a>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+</div>
+
+
+
+{% endblock page_body %}

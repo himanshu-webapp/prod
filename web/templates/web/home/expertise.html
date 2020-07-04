@@ -1,0 +1,243 @@
+{% load static %}
+<style>
+    .gallery ul li {
+        width : 130px;height : 120px;
+        text-align : center;
+        display : grid;
+        align-items : center;
+    }
+    .image_container {position:relative}
+    .image_overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: #9F161E88;
+          overflow: hidden;
+          width: 0;
+          height: 100%;
+          transition: .5s ease;
+    }
+    .gimg {
+          opacity: 1;
+          display: block;
+          width: 100%;
+          height: auto;
+          transition: .5s ease;
+          backface-visibility: hidden;
+    }
+    .image_container:hover .image_overlay{
+      width: 100%;
+    }
+    .showed {
+      display: inherit!important;
+    }
+    .column {
+        display : none;
+        transition : 3s
+    }
+</style>
+<div class="container-fluid cardo" id="Domainexpertise">
+    <div class="wrapper container pt-5 pb-5">
+        <h2 class="col-6 container text-center">DOMAIN EXPERTISE</h2>
+        <p class="text-center col-11 container mb-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Stet clita kasd gubergren.</p>
+        <div class="container-fluid gallery pb-3">
+            <div class="container-fluid">
+                <div class="container pl-0 pr-0 d-lg-none mb-1 pb-2 text-center">
+                    <label class="text-center"><p class="lead mb-0">Choose A Field</p></label>
+                    <select id="expertise-select" class="form-control" onchange="selectFunction()">
+                        <option value="all">All</option>
+                        <option value="concrete-repair-rehabilitation">Concrete Repair & Restoration</option>
+                        <option value="corrosion-mitigation">Corrosion Mitigation</option>
+                        <option value="grouting-injection">Grouting & Injection</option>
+                        <option value="structural-strengthening">Structural Strengthening</option>
+                        <option value="structural-health-monitoring">Structural Health Monitoring</option>
+                        <option value="specialty">Specialty Services</option>
+                    </select>
+                </div>
+                <ul class="list-unstyled d-none d-lg-flex flex-wrap">
+                    <li onclick="filterSelection('all')" class="active bg-rd-rev2 pointer mw-auto mr-1 mb-1 pt-3 pb-3 pl-3 pr-3 border-dark bg-white shadow-sm">All</li>
+                    <li onclick="filterSelection('concrete-repair-rehabilitation')" class="bg-rd-rev2 pointer mw-auto mr-1 mb-1 pt-3 pb-3 pl-3 pr-3 border-dark bg-white shadow-sm">Concrete Repair & Restoration</li>
+                    <li onclick="filterSelection('corrosion-mitigation')" class="bg-rd-rev2 pointer mw-auto mr-1 mb-1 pt-3 pb-3 pl-3 pr-3 border-dark bg-white shadow-sm">Corrosion Mitigation</li>
+                    <li onclick="filterSelection('grouting-injection')" class="bg-rd-rev2 pointer mw-auto mr-1 mb-1 pt-3 pb-3 pl-3 pr-3 border-dark bg-white shadow-sm">Grouting & Injection</li>
+                    <li onclick="filterSelection('structural-strengthening')" class="bg-rd-rev2 pointer mw-auto mr-1 mb-1 pt-3 pb-3 pl-3 pr-3 border-dark bg-white shadow-sm">Structural Strengthening</li>
+                    <li onclick="filterSelection('structural-health-monitoring')" class="bg-rd-rev2 pointer mw-auto mr-1 mb-1 pt-3 pb-3 pl-3 pr-3 border-dark bg-white shadow-sm">Structural Health Monitoring</li>
+                    <li onclick="filterSelection('specialty')" class="bg-rd-rev2 pointer mw-auto mr-1 mb-1 pt-3 pb-3 pl-3 pr-3 border-dark bg-white shadow-sm">Specialty Services</li>
+                </ul>
+                <div class="container-fluid gallery-body d-flex flex-wrap justify-content-start pr-5 pl-5 pt-5 pb-5">
+
+                    {% if image_list %}
+                        {% for image in image_list %}
+                            <div class="column {{ image.category }} {{ image.related_to }}">
+                            <div class="image_container gallery-image">
+                                <img style="width:250px;height:250px;object-fit:cover" src="{{ image.location.url }}" class="gimg">
+                                <div class="image_overlay text-white">
+                                    <p  data-toggle="modal" data-target="#exampleModalCenter" style="font-size:20px;" class="p-1 lead pointer justify-self-end text-right">&#10530;</p>
+                                    <div style="" class="">
+                                        <p style="" class="text-center mt-5"><strong>{{ image.category_name }}<br></strong><a class="text-white" href="{% url 'web:Service' image.category %}">View More</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        {% endfor %}
+
+                    {% else %}
+                        <h3 class="text-center display-4">No Images</h3>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        <p class="imgsrc" hidden>This is hidden</p>
+        <script type="text/javascript">
+
+            filterSelection("all")
+
+            function selectFunction() {
+              var x = document.getElementById("expertise-select").value;
+              filterSelection(x);
+            }
+
+            function filterSelection(c) {
+              var x, i;
+              x = document.getElementsByClassName("column");
+              console.log(c)
+              if (c == "all") c = "";
+              for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "showed");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "showed");
+              }
+            }
+
+            function w3AddClass(element, name) {
+              var i, arr1, arr2;
+              arr1 = element.className.split(" ");
+              arr2 = name.split(" ");
+              for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+              }
+              console.log(element.className)
+            }
+
+            function w3RemoveClass(element, name) {
+              var i, arr1, arr2;
+              arr1 = element.className.split(" ");
+              arr2 = name.split(" ");
+              for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                  arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+              }
+              element.className = arr1.join(" ");
+              console.log(element.className)
+            }
+
+
+            // Add active class to the current button (highlight it)
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+              btns[i].addEventListener("click", function(){
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+              });
+            }
+        </script>
+
+        <script>
+
+            var exp = document.getElementsByClassName("gimg");
+            var myFunction2 = function() {
+                var modal = document.querySelector(".modal-body img")
+                modal.src = this.src
+
+            }
+            Array.from(exp).forEach(function(exp) {
+              exp.addEventListener('mouseover', myFunction2);
+            });
+        </script>
+
+    </div>
+</div>
+<div class="container-fluid bg-rd-dark text-white cardo">
+    <div class="wrapper container pt-5 pb-5">
+        <div class="row ">
+            <div class="col-12 col-lg-9 d-flex align-items-center mb-2 mb-lg-0">
+                <h2 class="container text-center text-lg-left mb-0">Any Questions You Have, Just Ask.</h2>
+            </div>
+            <br>
+            <div class="col-12 col-lg-3 d-flex align-items-center justify-content-center">
+                <button class="btn btn-danger pr-5 pl-5">Get A Quote</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid cardo" id="Whyus" style="background-color:#eeeeee">
+    <div class="wrapper container pt-5 pb-5">
+        <h1 class="display-5 col-lg-6 container text-center">Why Choose Us?</h1>
+        <p class="lead text-center col-11 container mb-4">Choose for yourself. Get the best services available</p>
+
+        <div class="row">
+            <div class="col-6 d-none d-lg-flex align-items-start">
+                <img style="width:100%;height:auto" src="{% static 'web/assets/images/home/group.jpg' %}">
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="accordion" id="accordionExample">
+                  <div class="card rounded-0 mb-1 shadow-sm" style="border:none">
+                    <div class="card-header bg-white shadow pt-0 pb-0 "  id="headingOne">
+                      <h2 class="mb-0 pointer" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          <p class="lead mb-0 pt-3 pb-3 text-left text-rd-dark">Academia backed innovations in industry</p>
+                      </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body text-justify">
+                        Our leadership is committed to add a new dimension to technology through academia based innovation. We bring about the best research practices and solutions from IITs and other institutes of repute. The future holds better technology and more cost effective solutions to the problems pertaining to the concrete structures.
+                      </div>
+                    </div>
+                  </div>
+                  <div style="border:none" class="rounded-0 mb-1 shadow-sm card">
+                    <div class="card-header bg-white shadow pt-0 pb-0" id="headingTwo">
+                      <h2 class="mb-0 pointer"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="lead mb-0 pt-3 pb-3 text-left text-rd-dark">Experts from IITs and industry collaborates</p>
+                      </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body">
+                        Our company has talent from Indian Institutes of Technology(IITs) and experience from the established industry. We are on a mission to eliminate irregularities and transform operations in Structural Strengthening & Structural Reparing industry, through bringing transparency and trust in the process. Our world-class frameworks for Operations Management are a new light to the industry.
+                      </div>
+                    </div>
+                  </div>
+                  <div style="border:none" class="rounded-0 mb-1 shadow-sm card">
+                    <div class="card-header bg-white shadow pt-0 pb-0" id="headingThree">
+                      <h2 class="mb-0 pointer" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          <p class="lead mb-0 pt-3 pb-3 text-left text-rd-dark">Our professionalism defines the industry standards</p>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div class="card-body">
+	                      Systematic Conditional Assessment and Structural Integrity Audit is performed to identify causes of deterioration and extent of damage. Our expert structural professionals from IITs design the repair and treatment strategy with consideration for anticipated service life. Then our experienced engineers precisely implement the design recommendations to satisfy client requirements and quality standards.
+                      </div>
+                    </div>
+                  </div>
+                  <div style="border:none" class="rounded-0 mb-1 shadow-sm card">
+                    <div class="card-header bg-white shadow  pt-0 pb-0" id="headingFour">
+                      <h2 class="mb-0 pointer"  data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                          <p class="lead mb-0 pt-3 text-left text-rd-dark">We do the tough engineering work for you</p>
+                        <button class="btn btn-link btn-block text-left collapsed" type="button">
+
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                      <div class="card-body">
+	                      We identify and cure the premature deterioration of reinforced concrete, ICI structures(Infrastructural- bridges, precast; Commercial- housing societies, office buildings; Industrial- Silos, Chimneys;) to reinstate safety and serviceability. On systematic conditional assessment and structural design, we implement the restoration and rehabilitation recommendations with operational precision.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

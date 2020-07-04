@@ -1,0 +1,1 @@
+web: gunicorn CRIndia.wsgi --log-file -

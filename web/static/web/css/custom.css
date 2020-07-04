@@ -1,0 +1,173 @@
+:root{
+  --rd-dom : #CC3C38;
+  --rd-dark : #9F161E;
+  --rd-dark-trsp : #9F161E90;
+  --rd-light : #B41823;
+  --green : #2C2D28;
+  --white : #FFFFFF;
+  --black : #000000;
+  --tertiary : #F4F4F4;
+  --text : #121212;
+  --quarternery  : #707070;
+  --num-2 : 2;
+  --num-5 : 5;
+  --num-10: 10;
+  --percent-2 : 2%;
+  --percent-5 : 5%;
+  --percent-10 : 10%;
+  --wrapper-percent : 95%;
+}
+/** Defining Fonts*/
+@font-face {
+ 	font-family: Cardo;
+ 	src: url("../assets/fonts/cardo/Cardo-Regular.ttf") format("truetype"),
+	url("../assets/fonts/cardo/Cardo-Italic.ttf") format("truetype"),
+ 	url("../assets/fonts/cardo/Cardo-Bold.ttf") format("truetype");
+}
+html {
+    font-family : Cardo;
+}
+.cardo {font-family:Cardo}
+.text-green {color:var(--green)}
+.current-text {color:var(--rd-dark)}
+.text-rd-dark {color:var(--rd-dark)}
+
+.pointer {
+    cursor : pointer;
+}
+
+.bg-toggle {
+    background-color : #ffffff;
+}
+@media (min-width:768px){
+    .bg-toggle {
+        background-color : #2C2D28;
+        color:white
+    }
+}
+.btn-white{background-color:var(--white);color:var(--rd-dark);border:1px solid var(--rd-dark)}
+.btn-white:hover{background-color:var(--rd-dark);color:var(--white);border:1px solid var(--white)}
+.bg-green {background:var(--green);}
+.bg-white {background-color:var(--white)}
+.bg-rd-dark {background:var(--rd-dark);}
+.bg-rd-light {background:var(--rd-light);}
+.bg-rd-gradient {
+  background-color: var(--rd-light);
+  background-image:
+    linear-gradient(
+        to right,
+        var(--rd-dark),
+        var(--rd-light)
+    );
+}
+.bg-rd-rev:hover {
+  background-color: var(--rd-dom);
+  background-image:
+    linear-gradient(
+        to left,
+        var(--rd-dark),
+        var(--rd-light)
+    );
+}
+.bg-rd-rev2{
+    background-color:#fff
+    color : #121212;
+}
+.bg-rd-rev-active{
+background-color: var(--rd-dom);
+  background-image:
+    linear-gradient(
+        to left,
+        var(--rd-dark),
+        var(--rd-light)
+    );
+    color : #fff
+}
+.bg-rd-rev2:hover {
+  background-color: var(--rd-dom);
+  background-image:
+    linear-gradient(
+        to left,
+        var(--rd-dark),
+        var(--rd-light)
+    );
+    color : #fff
+}
+
+.br-bw-hv:hover {border-bottom:1px solid #fff;}
+.width-4 {width:24%!important;}
+
+.sh {
+-moz-box-shadow:    10px 5px 6px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 10px 5px 6px rgba(0,0,0,0.16);
+    box-shadow:         10px 5px 6px rgba(0,0,0,0.16);
+
+}
+
+mr-0 {margin : 0}
+pd-0 {padding:0}
+
+.pd-t2 { padding-top:20px }
+.pd-t3 { padding-top:30px }
+
+.pd-b2 { padding-bottom:20px }
+.pd-b3 { padding-bottom:30px }
+
+.pd-r2 { padding-right:20px }
+.pd-r3 { padding-right:30px }
+
+.pd-l1 { padding-right:10px }
+
+.pd-tb1 {padding-top:10px;padding-bottom:10px;}
+.pd-tb2 {padding-top:20px;padding-bottom:20px;}
+
+.pd-lr2 {padding-left:20px;padding-right:20px;}
+
+.clr-light {color:var(--tertiary);}
+.clr-white {color:var(--white);}
+
+.icon {height : 50px;}
+.bar {padding: 0 auto;line-height:1rem}
+
+.navbar {padding : 0;}
+.nav-menu {max-width : 175px}
+.wrapper {width:var(--wrapper-percent);padding:auto 0;position:static!important;}
+
+.bg-gr-none:hover {background-image : none;}
+.list-inline.disc {list-style : circle;}
+
+.list-inline .list-inline-item {vertical-align:top!important;align-self:start!important;}
+
+.full-width {
+    position:absolute;
+    right : 0;
+    left: 0;
+}
+@media screen and (max-width:767px){
+    #primary-nav-list {display:block!important;}
+}
+@media screen and (min-width:992px){
+
+    .border-lg-left{border-left:1px dotted gray!important;}
+    .border-lg-top {border-top:none!important}
+}
+.large-icon{
+  font-size : 60px;
+}
+.icon-div {
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  border : 1px solid #fff;
+  color: inherit;
+  display: grid;
+  align-items: center;
+  justify-items : center;
+  grid-template-columns: 1fr;
+  justify-self : end;
+}
+.border {border-width:0}
+.border-lg-left {border-left:none}
+.border-lg-top {border-top:1px dotted gray;}
+.border-dashed {border-style:dashed}
+
