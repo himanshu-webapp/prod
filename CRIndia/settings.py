@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'CRIndia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
+db_from_env = dj_database_url.config()
 
 DATABASES = {
     'default': {
