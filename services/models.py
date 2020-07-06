@@ -14,9 +14,9 @@ class ServiceCategory(models.Model):
 
 def getcategory():
     cat = []
-    obj = ServiceCategory.objects.all()
-    for o in obj:
-        cat.append((o.slug,o.slug))
+    # obj = ServiceCategory.objects.all()
+    # for o in obj:
+    #     cat.append((o.slug,o.slug))
     return cat
 class Service(models.Model):
     name = models.CharField(max_length=200)
@@ -36,9 +36,9 @@ class Service(models.Model):
 
 def getservices():
     ser = []
-    obj = Service.objects.all()
-    for s in obj:
-        ser.append((s.slug,s.slug))
+    # obj = Service.objects.all()
+    # for s in obj:
+    #     ser.append((s.slug,s.slug))
     return ser
 
 class ServiceImage(models.Model):
