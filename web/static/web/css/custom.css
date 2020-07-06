@@ -15,8 +15,9 @@
   --percent-2 : 2%;
   --percent-5 : 5%;
   --percent-10 : 10%;
-  --wrapper-percent : 95%;
+  --wrapper-percent : 96%;
 }
+
 /** Defining Fonts*/
 @font-face {
  	font-family: Cardo;
