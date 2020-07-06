@@ -1,4 +1,5 @@
 db.sqlite3
 web/templates/web/test
 web/static/web/css/main.css
+staticfiles/
 
